@@ -33,11 +33,11 @@ $(call inherit-product, device/htc/pico/pico.mk)
 
 # Release name and versioning
 PRODUCT_RELEASE_NAME := Explorer
-PRODUCT_VERSION_DEVICE_SPECIFIC := -UNOFFICIAL-BETA-2
+PRODUCT_VERSION_DEVICE_SPECIFIC :=
 CM_RELEASE := true
 
 # Product name
-PRODUCT_NAME := cm_pico
+PRODUCT_NAME := pa_pico
 PRODUCT_BRAND := htc_europe
 PRODUCT_DEVICE := pico
 PRODUCT_MODEL := HTC Explorer A310e
