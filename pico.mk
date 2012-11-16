@@ -117,6 +117,16 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/pico/files/etc/vold.fstab:system/etc/vold.fstab 
 
+# Prebuilt Binaries
+# Don't work on 4.x.x because from 2.3.5! And we don't need this !
+
+# Prebuilt Modules
+PRODUCT_COPY_FILES += \
+    device/htc/pico/prebuilt/bcmdhd.ko:system/lib/modules/bcmdhd.ko \
+    device/htc/pico/prebuilt/kineto_gan.ko:system/lib/modules/kineto_gan.ko \
+    device/htc/pico/prebuilt/cifs.ko:system/lib/modules/cifs.ko \
+    device/htc/pico/prebuilt/tun.ko:system/lib/modules/tun.ko \
+
 # Wifi
 PRODUCT_COPY_FILES += \
     device/htc/pico/files/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
@@ -219,7 +229,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.call_ring.multiple=false \
     ro.vold.umsdirtyratio=40
 
-PRODUCT_NAME := cm_pico
+PRODUCT_NAME := pa_pico
 PRODUCT_BRAND := HTC
 PRODUCT_DEVICE := pico
 PRODUCT_MODEL := HTC Explorer A310e
