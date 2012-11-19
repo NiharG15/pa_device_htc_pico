@@ -1,6 +1,7 @@
 # Boot animation
-TARGET_SCREEN_HEIGHT := 320
-TARGET_SCREEN_WIDTH  := 480
+##TARGET_SCREEN_HEIGHT := 320
+##TARGET_SCREEN_WIDTH  := 480
+TARGET_BOOTANIMATION_NAME := MDPI
 
 # Include GSM stuff
 $(call inherit-product, vendor/cm/config/gsm.mk)

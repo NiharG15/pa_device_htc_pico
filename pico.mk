@@ -16,12 +16,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Video decoding
 PRODUCT_PACKAGES += \
+    libmm-omxcore \
     libstagefrighthw \
     libOmxCore \
-    libOmxVidEnc \
-    libOmxH264Dec \
-    libOmxMpeg4Dec \
-    libdivxdrmdecrypt
     
 # Graphics 
 PRODUCT_PACKAGES += \
@@ -84,6 +81,13 @@ PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/lib/libv8.so:obj/lib/libv8.so \
     device/htc/pico/prebuilt/lib/libqc-opt.so:obj/lib/libqc-opt.so
 
+# Prebuilt Modules
+PRODUCT_COPY_FILES += \
+    device/htc/pico/prebuilt/bcmdhd.ko:system/lib/modules/bcmdhd.ko \
+    device/htc/pico/prebuilt/kineto_gan.ko:system/lib/modules/kineto_gan.ko \
+    device/htc/pico/prebuilt/cifs.ko:system/lib/modules/cifs.ko \
+    device/htc/pico/prebuilt/tun.ko:system/lib/modules/tun.ko \
+
 # OMX
 PRODUCT_COPY_FILES += \
     vendor/htc/pico/proprietary/lib/libmm-adspsvc.so:system/lib/libmm-adspsvc.so \
@@ -103,7 +107,8 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 # Publish that we support the live wallpaper feature.
 PRODUCT_COPY_FILES += \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml 
-    PRODUCT_PACKAGES += \
+    
+PRODUCT_PACKAGES += \
     LiveWallpapers \
     LiveWallpapersPicker \
     VisualizationWallpapers \
@@ -116,16 +121,6 @@ PRODUCT_COPY_FILES += \
 # Vold 
 PRODUCT_COPY_FILES += \
     device/htc/pico/files/etc/vold.fstab:system/etc/vold.fstab 
-
-# Prebuilt Binaries
-# Don't work on 4.x.x because from 2.3.5! And we don't need this !
-
-# Prebuilt Modules
-PRODUCT_COPY_FILES += \
-    device/htc/pico/prebuilt/bcmdhd.ko:system/lib/modules/bcmdhd.ko \
-    device/htc/pico/prebuilt/kineto_gan.ko:system/lib/modules/kineto_gan.ko \
-    device/htc/pico/prebuilt/cifs.ko:system/lib/modules/cifs.ko \
-    device/htc/pico/prebuilt/tun.ko:system/lib/modules/tun.ko \
 
 # Wifi
 PRODUCT_COPY_FILES += \
@@ -170,23 +165,23 @@ PRODUCT_COPY_FILES += \
     
 # RIL
 PRODUCT_COPY_FILES += \
-    device/htc/pico/prebuilt/lib/libdnshostprio.so:system/lib/libdnshostprio.so \
-    device/htc/pico/prebuilt/lib/libtcpfinaggr.so:system/lib/libtcpfinaggr.so \
-    device/htc/pico/prebuilt/lib/pp_proc_plugin.so:system/lib/pp_proc_plugin.so \
-    device/htc/pico/prebuilt/lib/qnet-plugin.so:system/lib/qnet-plugin.so \
-    device/htc/pico/prebuilt/lib/tcp-connections.so:system/lib/tcp-connections.so \
-    device/htc/pico/prebuilt/lib/libdiag.so:system/lib/libdiag.so \
-    device/htc/pico/prebuilt/lib/libdsi_netctrl.so:system/lib/libdsi_netctrl.so \
-    device/htc/pico/prebuilt/lib/libdsutils.so:system/lib/libdsutils.so \
-    device/htc/pico/prebuilt/lib/libidl.so:system/lib/libidl.so \
-    device/htc/pico/prebuilt/lib/libqc-opt.so:system/lib/libqc-opt.so \
-    device/htc/pico/prebuilt/lib/libqdi.so:system/lib/libqdi.so \
-    device/htc/pico/prebuilt/lib/libqdp.so:system/lib/libqdp.so \
-    device/htc/pico/prebuilt/lib/libqmi.so:system/lib/libqmi.so \
-    device/htc/pico/prebuilt/lib/libqmiservices.so:system/lib/libqmiservices.so \
     device/htc/pico/prebuilt/lib/libv8.so:system/lib/libv8.so \
-    vendor/htc/pico/proprietary/lib/libhtc_ril.so:system/lib/libhtc_ril.so
-    
+    vendor/htc/pico/proprietary/lib/libhtc_ril.so:system/lib/libhtc_ril.so \
+    device/htc/pico/prebuilt/lib/libqc-opt.so:system/lib/libqc-opt.so \
+#   device/htc/pico/prebuilt/lib/libdnshostprio.so:system/lib/libdnshostprio.so \
+#   device/htc/pico/prebuilt/lib/libtcpfinaggr.so:system/lib/libtcpfinaggr.so \
+#   device/htc/pico/prebuilt/lib/pp_proc_plugin.so:system/lib/pp_proc_plugin.so \
+#   device/htc/pico/prebuilt/lib/qnet-plugin.so:system/lib/qnet-plugin.so \
+#   device/htc/pico/prebuilt/lib/tcp-connections.so:system/lib/tcp-connections.so \
+#   device/htc/pico/prebuilt/lib/libdiag.so:system/lib/libdiag.so \
+#   device/htc/pico/prebuilt/lib/libdsi_netctrl.so:system/lib/libdsi_netctrl.so \
+#   device/htc/pico/prebuilt/lib/libdsutils.so:system/lib/libdsutils.so \
+#   device/htc/pico/prebuilt/lib/libidl.so:system/lib/libidl.so \
+#   device/htc/pico/prebuilt/lib/libqdi.so:system/lib/libqdi.so \
+#   device/htc/pico/prebuilt/lib/libqdp.so:system/lib/libqdp.so \
+#   device/htc/pico/prebuilt/lib/libqmi.so:system/lib/libqmi.so \
+#   device/htc/pico/prebuilt/lib/libqmiservices.so:system/lib/libqmiservices.so \
+ 
 # Audio DSP Profiles
 PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/etc/soundimage/srs_global.cfg:system/etc/soundimage/srs_global.cfg \
@@ -229,13 +224,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.call_ring.multiple=false \
     ro.vold.umsdirtyratio=40
 
-PRODUCT_NAME := pa_pico
-PRODUCT_BRAND := HTC
-PRODUCT_DEVICE := pico
-PRODUCT_MODEL := HTC Explorer A310e
-PRODUCT_MANUFACTURER := HTC
+##PRODUCT_NAME := pa_pico
+##PRODUCT_BRAND := htc_europe
+##PRODUCT_DEVICE := pico
+##PRODUCT_MODEL := HTC Explorer A310e
+##PRODUCT_MANUFACTURER := HTC
 PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 PRODUCT_TAGS += dalvik.gc.type-precise
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-
