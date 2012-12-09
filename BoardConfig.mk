@@ -162,7 +162,7 @@ WITH_JIT := true
 ENABLE_JSC_JIT := true
 JS_ENGINE := v8
 HTTP := chrome
-DYNAMIC_SHARED_LIBV8SO := true
+#DYNAMIC_SHARED_LIBV8SO := true
 
 # Touch screen compatibility for JB
 BOARD_USE_LEGACY_TOUCHSCREEN := true
